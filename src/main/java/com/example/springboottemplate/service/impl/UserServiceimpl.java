@@ -15,13 +15,13 @@ public class UserServiceimpl implements UserService {
     @Autowired
     private UserMapper userMapper;
 
-    @Override
-    public User getUserName(Integer id) {
-        User user = new User();
-        user.setId(id);
-        user = userMapper.selectOne(user);
-        return user;
-    }
+//    @Override
+//    public User getUserName(Integer id) {
+//        User user = new User();
+//        user.setId(id);
+//        user = userMapper.selectOne(user);
+//        return user;
+//    }
 
     @Override
     public Void createUser(User user) {

@@ -5,9 +5,9 @@ spring:
   #数据库连接配置
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/ssm-demo?characterEncoding=utf-8&useSSL=false&serverTimezone=GMT%2B8
+    url: jdbc:mysql://localhost:3306/
     username: root
-    password: tangguo
+    password: root753951
   flyway:
     ## 是否启用flyway
     enabled: true
@@ -25,7 +25,10 @@ spring:
     validate-on-migrate: true
     ## 当迁移发现数据库非空且存在没有元数据的表时，自动执行基准迁移，新建schema_version表
     baseline-on-migrate: true
-
+    url: jdbc:mysql://localhost:3306/?useSsl=true
+    user: root
+    password: root753951
+    schemas: app-db
 
 #mybatis的相关配置
 mybatis:
@@ -44,8 +47,15 @@ pagehelper:
 
 # 通用mapper配置
 mapper:
-  mappers: com.example.springboottemplate.util.MyMapper
+  mappers: com.example.springboottemplate.mapper
   not-empty: false
   identity: MYSQL
 
-# flyway 配置
+# springdoc 配置
+springdoc:
+  packages-to-scan: com.example.springboottemplate.controller
+  paths-to-match: /controller
+  api-docs:
+    path: /api
+  swagger-ui:
+    layout: BaseLayout
